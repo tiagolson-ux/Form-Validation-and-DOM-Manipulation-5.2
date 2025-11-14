@@ -23,3 +23,46 @@ console.log("Confirm password input selected:", confirmPasswordInput);
 // Note: This element will show general form-level messages.
 const formMessage = document.querySelector("#formMessage");
 console.log("Form message area selected:", formMessage);
+
+/*
+  Note to self:
+  This function looks at the input's parent ".form-group"
+  and finds the matching ".error-message" div.
+  We use this to put the right error under the right field.
+*/
+const getErrorElement = (inputElement) => {
+  const formGroup = inputElement.closest(".form-group");
+  if (!formGroup) {
+    return null;
+  }
+
+  const errorDiv = formGroup.querySelector(".error-message");
+  return errorDiv;
+};
+
+console.log("getErrorElement helper is ready."); // Note to self: Function is defined.by TN
+
+// ---------- Helper: show an error for a field ----------
+
+/*
+  Note to self:
+  This function:
+  - Gets the matching error div for the input
+  - Puts message text inside that div
+  - Adds the 'invalid' class to the input (red border)
+  - Removes the 'valid' class (if it was there)
+*/
+const showError = (inputElement, message) => {
+  const errorDiv = getErrorElement(inputElement);
+
+  if (errorDiv) {
+    errorDiv.textContent = message;
+  }
+
+  inputElement.classList.remove("valid");
+  inputElement.classList.add("invalid");
+
+  console.log("showError called for:", inputElement.id, "message:", message);
+};
+
+console.log("showError function is ready."); // Note to self: Function is defined.
