@@ -111,4 +111,5 @@ const setFormMessage = (message, type) => {
   console.log("Form message set:", message, "type:", type);
 };
 
-console.log("setFormMessage function is ready."); // Note to self: Function is defi
+console.log("setFormMessage function is ready."); // Note to self: Function is defined
+
