@@ -141,3 +141,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Note to self: At this point, basic setup and helpers are done.
 // Time to implement individual validation for each field.
+
+// ---------- Real-time validation (input events) ----------
+
+/*
+  Note to self:
+  These listeners run each time the user types into a field.
+  This gives instant feedback instead of waiting until submit.
+*/
+
+usernameInput.addEventListener("input", () => {
+  console.log("Username input event fired.");
+  validateUsername();
+});
+
+emailInput.addEventListener("input", () => {
+  console.log("Email input event fired.");
+  validateEmail();
+});
+
+passwordInput.addEventListener("input", () => {
+  console.log("Password input event fired.");
+  validatePassword();
+  // Note to self: Also re-check confirm password if user changes password.
+  if (confirmPasswordInput.value) {
+    validateConfirmPassword();
+  }
+});
+
+confirmPasswordInput.addEventListener("input", () => {
+  console.log("Confirm password input event fired.");
+  validateConfirmPassword();
+});
+
+console.log("Real-time validation listeners are set up.");
