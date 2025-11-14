@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Lab 5.2 Form Validation (by-TN) -->
+    <!-- Note to self: This head section sets up the page info and links CSS and JS -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Registration Form (by-TN)</title>
+
+    <!-- Note to self: This links my CSS file so styles work -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+  
+    <div class="page-wrapper">
+      <div class="container">
+        <h1>Register</h1>
+
+        <!-- Note to self: This form holds all my input fields -->
+        <!-- novalidate tells the browser not to show its default bubbles -->
+        <form id="registrationForm" novalidate>
+          <!-- Username Block -->
+          <div class="form-group">
+            <label for="username">Username:</label>
+
+            <!-- Note to self: required + minlength help with basic HTML5 validation -->
+            <input
+              type="text"
+              id="username"
+              name="username"
+              required
+              minlength="3"
+            />
+
+            <!-- Note to self: This div will show username error text -->
+            <div class="error-message" data-error-for="username"></div>
+          </div>
+
+          <!-- Email Block part right here-->
+          <div class="form-group">
+            <label for="email">Email:</label>
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+
+            <!-- Note to self: This div will show email error text -->
+            <div class="error-message" data-error-for="email"></div>
+          </div>
+
+          <!-- Password Block -->
+          <div class="form-group">
+            <label for="password">Password:</label>
+
+            <!-- Note to me: pattern enforces 8 chars, 1 upper, 1 lower, 1 number -->
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              minlength="8"
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}"
+            />
+
+            <div class="helper-text">
+              Password must be at least 8 characters long and include:
+              one uppercase letter, one lowercase letter, and one number.
+            </div>
+
+            <!-- Note to self: This div will show password error text -->
+            <div class="error-message" data-error-for="password"></div>
+          </div>
+
+          <!-- Confirm Password Block -->
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+            />
+
+            <!-- Note to self: This div will show confirm password error text -->
+            <div class="error-message" data-error-for="confirmPassword"></div>
+          </div>
+
+          <!-- Status/success message block -->
+          <div class="form-status">
+            <!-- Note to self: JavaScript will put success or general messages here -->
+            <div id="formMessage"></div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="button-row">
+            <button type="submit">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Note to self: JavaScript file goes at the end so HTML loads first -->
+    <script src="script.js"></script>
+  </body>
+</html>
