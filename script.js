@@ -66,3 +66,49 @@ const showError = (inputElement, message) => {
 };
 
 console.log("showError function is ready."); // Note to self: Function is defined.
+
+/*
+  Note to self:
+  This function:
+  - Clears the error text in the matching error div
+  - Adds 'valid' class to the input (green border)
+  - Removes 'invalid' class
+*/
+const clearError = (inputElement) => {
+  const errorDiv = getErrorElement(inputElement);
+
+  if (errorDiv) {
+    errorDiv.textContent = "";
+  }
+
+  inputElement.classList.remove("invalid");
+  inputElement.classList.add("valid");
+
+  console.log("clearError called for:", inputElement.id);
+};
+
+console.log("clearError function is ready."); // Note to self: Function is defined.
+
+// ---------- Helper: set form-level message (top/bottom status) ----------
+
+/*
+  Note to self:
+  This shows a big message for the whole form, like
+  "Registration successful" or "Please fix errors".
+*/
+const setFormMessage = (message, type) => {
+  formMessage.textContent = message || "";
+
+  // Remove both classes first
+  formMessage.classList.remove("success", "error");
+
+  if (type === "success") {
+    formMessage.classList.add("success");
+  } else if (type === "error") {
+    formMessage.classList.add("error");
+  }
+
+  console.log("Form message set:", message, "type:", type);
+};
+
+console.log("setFormMessage function is ready."); // Note to self: Function is defi
