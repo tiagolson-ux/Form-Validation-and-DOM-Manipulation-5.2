@@ -1,0 +1,27 @@
+# Lab 5.2 – Interactive Registration Form (by-TN)
+
+This project is a simple user registration form that uses HTML, CSS, and JavaScript to validate user input in real time and save the username using localStorage.
+
+## How to run
+
+1. Open `index.html` in a browser (or use VS Code Live Server).
+2. Type values into the Username, Email, Password, and Confirm Password fields.
+3. Watch the error messages update as you type.
+4. Submit the form with valid data to see the success message and save the username.
+
+## Reflection
+
+**1. How did `event.preventDefault()` help in handling form submission?**  
+`event.preventDefault()` stopped the form from doing the normal browser submit and page refresh. That gave me time to run my own JavaScript checks first. I was able to show clear error messages and only treat the form as “submitted” when all the fields were valid.
+
+**2. HTML5 validation attributes vs JavaScript-based validation — why use both?**  
+HTML5 attributes like `required`, `type="email"`, `minlength`, and `pattern` give built-in rules and basic browser checks. JavaScript validation lets me control exactly when validation happens, set custom error messages, and style the inputs. Using both together gave me stronger validation and better user feedback.
+
+**3. How did you use localStorage, and what are its limitations?**  
+I used `localStorage.setItem("savedUsername", username)` after a successful submit and `localStorage.getItem("savedUsername")` on page load to pre-fill the username. The limitation is that localStorage is not secure for sensitive data like passwords because it can be read by any script on the page and is stored in plain text in the browser.
+
+**4. Challenge and solution for real-time validation.**  
+A challenge was making sure the messages updated smoothly as the user typed in each field. I solved this by adding `input` event listeners on each field and calling individual validation functions that updated the error divs and added `valid` or `invalid` classes in real time.
+
+**5. How did you keep custom error messages user-friendly?**  
+I wrote messages in simple, plain English that said exactly what was wrong and what the user should do. I showed the messages right under each field, and I also focused the first invalid field on submit so the user knew where to start fixing errors.
