@@ -113,3 +113,31 @@ const setFormMessage = (message, type) => {
 
 console.log("setFormMessage function is ready."); // Note to self: Function is defined
 
+// ---------- Load saved username from localStorage on page load ----------
+
+/*
+  Note to self:
+  When the page loads, we check if we previously saved a username
+  in localStorage under the key "savedUsername".
+  If it exists, we put it into the username field for convenience.
+*/
+const loadSavedUsername = () => {
+  const savedUsername = localStorage.getItem("savedUsername");
+  console.log("Saved username from localStorage:", savedUsername);
+
+  if (savedUsername) {
+    usernameInput.value = savedUsername;
+    usernameInput.classList.add("valid");
+  }
+};
+
+console.log("loadSavedUsername function is ready."); // Note: This function is defined.
+
+// Note to self: Run this when the page is fully loaded.
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded. Now loading saved username.");
+  loadSavedUsername();
+});
+
+// Note to self: At this point, basic setup and helpers are done.
+// Time to implement individual validation for each field.
