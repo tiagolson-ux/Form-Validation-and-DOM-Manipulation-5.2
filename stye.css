@@ -1,0 +1,130 @@
+/* Lab 5.2 Form Validation CSS (by-TN) */
+/* Note to self: This file controls how the page looks */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Note to me: This styles the whole page background and centers the form */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Note to me: This wrapper gives extra space around the form container */
+.page-wrapper {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Note to me: This is the white card that holds the form */
+.container {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+/* Note to self: Center the title text */
+h1 {
+  text-align: center;
+  color: #333333;
+}
+
+/* Note to me: Each form group keeps label, input, and error together */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Note to me: Make labels bold and above inputs */
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Note to me: Style text, email, and password inputs */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Note to me: Red border for invalid fields when we add .invalid class in JS */
+.form-group input.invalid {
+  border-color: #e74c3c;
+}
+
+/* Note to me: Green border for valid fields when we add .valid class in JS */
+.form-group input.valid {
+  border-color: #2ecc71;
+}
+
+/* Note to me: This is the small helper text under the password field */
+.helper-text {
+  font-size: 0.8em;
+  color: #777777;
+  margin-top: 3px;
+}
+
+/* Note to me: Error messages appear in red under each field */
+.error-message {
+  color: #e74c3c;
+  font-size: 0.9em;
+  margin-top: 5px;
+  min-height: 1em; /* keeps space even when empty */
+}
+
+/* Note to me: This area is for general success or form-level messages */
+.form-status {
+  margin: 10px 0;
+  min-height: 1.2em;
+}
+
+#formMessage {
+  font-size: 0.95em;
+}
+
+/* Note to me: Simple success color */
+#formMessage.success {
+  color: #2ecc71;
+}
+
+/* Note to self: Simple error color for form-level messages */
+#formMessage.error {
+  color: #e74c3c;
+}
+
+/* Note to me: Wrap button so we can center it or adjust it later */
+.button-row {
+  margin-top: 10px;
+}
+
+/* Note to me: Style the submit button */
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Note to me-self: Slight darker color when hovering */
+button[type="submit"]:hover {
+  background-color: #2980b9;
+}
